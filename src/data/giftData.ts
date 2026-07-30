@@ -4,7 +4,7 @@ export interface GalleryItem {
   caption: string;
   date: string;
   location?: string;
-  rotation?: number; // Tilted Polaroid rotation in degrees
+  rotation?: number;
 }
 
 export interface TimelineItem {
@@ -17,10 +17,12 @@ export interface TimelineItem {
   imageUrl?: string;
 }
 
-export interface SongItem {
+export interface TopSongItem {
+  id: string;
   title: string;
   artist: string;
-  memory: string;
+  coverUrl: string;
+  spotifyUrl?: string;
 }
 
 export interface PuzzleQuestion {
@@ -58,10 +60,20 @@ export interface GiftData {
   };
 
   playlist: {
-    spotifyEmbedUrl: string;
-    spotifyDirectUrl: string;
-    description: string;
-    favoriteSongs: SongItem[];
+    quote: string;
+    buddiesLabel: string;
+    musicCard: {
+      title: string;
+      name: string;
+      song: string;
+      artist: string;
+      album: string;
+      issuedDate: string;
+      photoUrl: string;
+      code: string;
+    };
+    topSongsTitle: string;
+    topSongs: TopSongItem[];
   };
 }
 
@@ -118,7 +130,7 @@ export const giftData: GiftData = {
   },
 
   // =========================================================================
-  // 3. GALERI FOTO POLAROID KENANGAN (8 FOTO POLAROID ASLI)
+  // 3. GALERI FOTO POLAROID KENANGAN
   // =========================================================================
   gallery: [
     {
@@ -253,33 +265,59 @@ export const giftData: GiftData = {
   },
 
   // =========================================================================
-  // 6. PLAYLIST KENANGAN (SPOTIFY EMBED & SONG LIST)
+  // 6. PLAYLIST KENANGAN (MUSIC PASS CARD & TOP 5 SONGS)
   // =========================================================================
   playlist: {
-    spotifyEmbedUrl: "https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M?utm_source=generator",
-    spotifyDirectUrl: "https://open.spotify.com/playlist/37i9dQZF1DXcBWIGoYBM5M",
-    description: "Kumpulan lagu pilihan yang menyimpan banyak kenangan manis saat kita nikmati bersama.",
+    quote: "Hidup bagaikan rekaman lagu, dan setiap melodi terbaik selalu mengingatkan aku padamu.",
+    buddiesLabel: "Lagu kenangan favorit kita",
+    
+    musicCard: {
+      title: "Music Gift Pass",
+      name: "Untuk Sayangku",
+      song: "Sampai Jadi Debu",
+      artist: "Banda Neira",
+      album: "Kenangan Manis Berdua",
+      issuedDate: "Spesial Ulang Tahun",
+      photoUrl: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=400&auto=format&fit=crop",
+      code: "#HUT-2026-LOVE"
+    },
 
-    favoriteSongs: [
+    topSongsTitle: "Lagu Kenangan Favorit Kita",
+    topSongs: [
       {
+        id: "song-1",
         title: "Sampai Jadi Debu",
         artist: "Banda Neira",
-        memory: "Lagu yang memberikan ketenangan dan makna mendalam tentang tumbuh bersama."
+        coverUrl: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=200&auto=format&fit=crop",
+        spotifyUrl: "https://open.spotify.com/search/Sampai%20Jadi%20Debu%20Banda%20Neira"
       },
       {
+        id: "song-2",
         title: "Perfect",
         artist: "Ed Sheeran",
-        memory: "Lagu yang sering diputar saat kita dalam perjalanan."
+        coverUrl: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=200&auto=format&fit=crop",
+        spotifyUrl: "https://open.spotify.com/search/Perfect%20Ed%20Sheeran"
       },
       {
+        id: "song-3",
         title: "Until I Found You",
         artist: "Stephen Sanchez",
-        memory: "Lagu yang selalu mengingatkan pada momen-momen berharga bersamamu."
+        coverUrl: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=200&auto=format&fit=crop",
+        spotifyUrl: "https://open.spotify.com/search/Until%20I%20Found%20You"
       },
       {
+        id: "song-4",
         title: "Monokrom",
         artist: "Tulus",
-        memory: "Lagu rasa syukur atas lembaran kenangan manis yang kita lalui."
+        coverUrl: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=200&auto=format&fit=crop",
+        spotifyUrl: "https://open.spotify.com/search/Monokrom%20Tulus"
+      },
+      {
+        id: "song-5",
+        title: "Cinta Luar Biasa",
+        artist: "Andmesh",
+        coverUrl: "https://images.unsplash.com/photo-1494774157365-9e04c6720e47?q=80&w=200&auto=format&fit=crop",
+        spotifyUrl: "https://open.spotify.com/search/Cinta%20Luar%20Biasa"
       }
     ]
   }
