@@ -32,25 +32,33 @@ export const GallerySection: React.FC = () => {
 
       {/* Larger & Messy Scattered Overlapping Polaroid Photo Canvas */}
       <div className="py-8 px-2 sm:px-6">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10 lg:gap-12 -space-x-2 md:-space-x-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 lg:gap-6 -space-x-2 md:-space-x-4">
           {giftData.gallery.map((item, idx) => {
             const styleConfig = scatteredStyles[idx % scatteredStyles.length];
+            const itemRotation = item.rotation ?? styleConfig.rotate;
 
             return (
               <motion.div
                 key={item.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ 
+                  opacity: 0, 
+                  y: styleConfig.translateY + 20, 
+                  x: styleConfig.translateX, 
+                  rotate: itemRotation 
+                }}
+                whileInView={{ 
+                  opacity: 1, 
+                  y: styleConfig.translateY, 
+                  x: styleConfig.translateX, 
+                  rotate: itemRotation 
+                }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.05, duration: 0.4 }}
-                style={{
-                  transform: `rotate(${styleConfig.rotate}deg) translateY(${styleConfig.translateY}px) translateX(${styleConfig.translateX}px)`
-                }}
                 whileHover={{
                   rotate: 0,
-                  scale: 1.12,
-                  translateY: 0,
-                  translateX: 0,
+                  scale: 1.0,
+                  y: 0,
+                  x: 0,
                   zIndex: 50,
                   transition: { type: 'spring', stiffness: 280, damping: 18 }
                 }}
