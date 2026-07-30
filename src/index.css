@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+  }
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-handwriting {
+  font-family: var(--font-serif);
+  font-style: italic;
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+/* Warm Glowing Aesthetic Utilities (Clean & Elegant) */
+.glass-card {
+  background: rgba(255, 253, 248, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(251, 191, 36, 0.3);
+  box-shadow: 0 10px 30px -10px rgba(251, 191, 36, 0.12),
+              0 4px 12px -2px rgba(217, 119, 6, 0.06);
+}
+
+.glass-card-glow {
+  background: linear-gradient(135deg, rgba(255, 253, 245, 0.92) 0%, rgba(255, 246, 237, 0.88) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  box-shadow: 0 0 25px rgba(251, 191, 36, 0.18),
+              0 10px 35px -5px rgba(217, 119, 6, 0.1);
+}
+
+.glow-gold-text {
+  background: linear-gradient(135deg, #b45309 0%, #d97706 50%, #92400e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes warmPulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.06);
+  }
+}
+
+.animate-warm-pulse {
+  animation: warmPulse 8s ease-in-out infinite;
+}
+
+/* Hide scrollbar for clean UI in tabs */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
