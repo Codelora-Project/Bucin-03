@@ -58,7 +58,7 @@ export const App: React.FC = () => {
   const showPuzzle = (isCountdownOver || isDevMode) && !isUnlocked;
 
   return (
-    <div className="relative min-h-screen overflow-x-hidden font-sans bg-amber-50">
+    <div className="relative min-h-screen overflow-x-hidden font-sans bg-gradient-to-br from-amber-100/90 via-orange-50/85 to-amber-100/70">
       {/* Background Floating Warm Lights & Ambient Orbs */}
       <FloatingHearts />
 
