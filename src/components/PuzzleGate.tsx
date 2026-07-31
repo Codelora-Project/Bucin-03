@@ -21,8 +21,11 @@ export const PuzzleGate: React.FC<PuzzleGateProps> = ({ onUnlockSuccess }) => {
   const triggerConfettiEffect = () => {
     try {
       confetti({
-        particleCount: 100,
-        spread: 75,
+        particleCount: 60,
+        spread: 70,
+        ticks: 70,
+        decay: 0.92,
+        gravity: 1.2,
         origin: { y: 0.6 },
         colors: ['#d97706', '#b45309', '#fbbf24']
       });

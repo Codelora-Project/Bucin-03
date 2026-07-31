@@ -10,6 +10,7 @@ import { LoveLetterSection } from './components/LoveLetterSection';
 import { PlaylistSection } from './components/PlaylistSection';
 import { Footer } from './components/Footer';
 import { motion } from 'framer-motion';
+import confetti from 'canvas-confetti';
 
 export const App: React.FC = () => {
   const [isCountdownOver, setIsCountdownOver] = useState<boolean>(false);
@@ -38,6 +39,17 @@ export const App: React.FC = () => {
   const handleUnlockSuccess = () => {
     setIsUnlocked(true);
     localStorage.setItem('bucin_gift_unlocked', 'true');
+    try {
+      confetti({
+        particleCount: 50,
+        spread: 70,
+        ticks: 70,
+        decay: 0.92,
+        gravity: 1.2,
+        origin: { y: 0.3 },
+        colors: ['#d97706', '#b45309', '#fbbf24', '#f59e0b']
+      });
+    } catch (e) {}
   };
 
   const handleResetLock = () => {
@@ -83,7 +95,7 @@ export const App: React.FC = () => {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.15 }}
           className="relative z-10 flex flex-col min-h-screen"
         >
           {/* Top Sticky Navigation */}
