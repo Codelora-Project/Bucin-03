@@ -48,7 +48,7 @@ export const Navbar: React.FC<NavbarProps> = ({
       >
         {/* Brand / Logo */}
         <button
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          onClick={() => onSelectSection('')}
           className="flex items-center gap-1 sm:gap-2 pl-2 sm:pl-3 pr-1 sm:pr-2 py-1 sm:py-1.5 rounded-full hover:bg-amber-100/60 transition-colors shrink-0 cursor-pointer"
           title="Scroll to top"
         >

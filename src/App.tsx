@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { giftData } from './data/giftData';
 import { FloatingHearts } from './components/FloatingHearts';
 import { CountdownGate } from './components/CountdownGate';
@@ -10,13 +10,17 @@ import { LoveLetterSection } from './components/LoveLetterSection';
 import { PlaylistSection } from './components/PlaylistSection';
 import { Footer } from './components/Footer';
 import { motion } from 'framer-motion';
+import { ChevronDown } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
 export const App: React.FC = () => {
   const [isCountdownOver, setIsCountdownOver] = useState<boolean>(false);
   const [isUnlocked, setIsUnlocked] = useState<boolean>(false);
   const [isDevMode, setIsDevMode] = useState<boolean>(false);
-  const [activeSection, setActiveSection] = useState<string>('galeri');
+  const [activeSection, setActiveSection] = useState<string>('');
+
+  const isManualScrollingRef = useRef<boolean>(false);
+  const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const target = new Date(giftData.targetDate).getTime();
@@ -35,6 +39,38 @@ export const App: React.FC = () => {
       setIsDevMode(true);
     }
   }, []);
+
+  // Automatic ScrollSpy listener to update active navbar item dynamically
+  useEffect(() => {
+    if (!isUnlocked) return;
+
+    const sections = ['galeri', 'timeline', 'surat', 'playlist'];
+
+    const handleScroll = () => {
+      // Pause ScrollSpy while manual smooth scrolling is animating from a navbar click
+      if (isManualScrollingRef.current) return;
+
+      // If near top hero welcome screen, no section tab should be selected
+      if (window.scrollY < 350) {
+        setActiveSection('');
+        return;
+      }
+
+      const scrollPosition = window.scrollY + 280;
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const el = document.getElementById(sections[i]);
+        if (el && el.offsetTop <= scrollPosition) {
+          setActiveSection(sections[i]);
+          break;
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isUnlocked]);
 
   const handleUnlockSuccess = () => {
     setIsUnlocked(true);
@@ -59,11 +95,25 @@ export const App: React.FC = () => {
   };
 
   const handleSelectSection = (sectionId: string) => {
+    isManualScrollingRef.current = true;
     setActiveSection(sectionId);
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+
+    if (!sectionId) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
+
+    if (scrollTimeoutRef.current) {
+      clearTimeout(scrollTimeoutRef.current);
+    }
+
+    scrollTimeoutRef.current = setTimeout(() => {
+      isManualScrollingRef.current = false;
+    }, 1000);
   };
 
   const showCountdown = !isCountdownOver && !isDevMode && !isUnlocked;
@@ -106,19 +156,19 @@ export const App: React.FC = () => {
             onResetLock={handleResetLock}
           />
 
-          {/* Hero Welcome Banner */}
-          <section className="pt-20 sm:pt-24 pb-12 px-4 text-center max-w-4xl mx-auto space-y-4 font-sans">
+          {/* Hero Welcome Banner (Full Viewport Screen so Gallery is not visible initially) */}
+          <section className="min-h-screen flex flex-col justify-center items-center pt-20 sm:pt-24 pb-12 px-4 text-center max-w-4xl mx-auto space-y-6 font-sans relative">
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              className="inline-flex items-center px-4 py-1.5 rounded-full bg-amber-100/90 text-amber-900 text-xs font-semibold uppercase tracking-wider border border-amber-300/60"
+              className="inline-flex items-center px-4 py-1.5 rounded-full bg-amber-100/90 text-amber-900 text-xs font-semibold uppercase tracking-wider border border-amber-300/60 shadow-xs"
             >
               Happy {giftData.birthdayAge}rd Birthday
             </motion.div>
 
-            <h1 className="text-4xl md:text-6xl font-serif font-bold text-stone-900 leading-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-serif font-bold text-stone-900 leading-tight">
               Happy Birthday, <br />
-              <span className="glow-gold-text italic block mt-1">
+              <span className="glow-gold-text italic block mt-2">
                 {giftData.recipientName}
               </span>
             </h1>
@@ -126,6 +176,22 @@ export const App: React.FC = () => {
             <p className="text-stone-600 text-base md:text-lg max-w-xl mx-auto font-sans leading-relaxed">
               I created this website specially to celebrate your special moment. Enjoy exploring all the sweet memories below.
             </p>
+
+            {/* Scroll Down Indicator */}
+            <motion.div
+              animate={{ y: [0, 8, 0] }}
+              transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
+              className="pt-6 sm:pt-12 flex flex-col items-center cursor-pointer opacity-80 hover:opacity-100 transition-opacity"
+              onClick={() => {
+                const el = document.getElementById('galeri');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
+              <span className="text-xs font-bold text-amber-900 tracking-widest uppercase mb-1.5 font-sans">
+                Scroll untuk Jelajahi
+              </span>
+              <ChevronDown className="w-5 h-5 text-amber-800" />
+            </motion.div>
           </section>
 
           {/* Main Content Sections */}
