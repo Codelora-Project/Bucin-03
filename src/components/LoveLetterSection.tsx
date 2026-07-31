@@ -18,13 +18,13 @@ export const LoveLetterSection: React.FC = () => {
       {/* Section Header */}
       <div className="text-center space-y-3">
         <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-amber-100/80 text-amber-900 text-xs font-semibold uppercase tracking-wider border border-amber-300/60 font-sans">
-          Ungkapan Perasaan Tulus
+          Sincere Feelings
         </div>
         <h2 className="text-3xl md:text-5xl font-serif font-bold text-stone-900">
-          Surat Cinta Khusus Buat Kamu
+          A Love Letter Just for You
         </h2>
         <p className="text-stone-600 text-base max-w-xl mx-auto font-sans leading-relaxed">
-          Pesan manis yang ditulis dari lubuk hati paling dalam.
+          A sweet message written from the bottom of my heart.
         </p>
       </div>
 
@@ -65,7 +65,7 @@ export const LoveLetterSection: React.FC = () => {
         {/* Secret Postscript */}
         {giftData.letter.secretPostscript && (
           <div className="mt-4 p-4 rounded-2xl bg-amber-100/60 border border-amber-200/80 text-amber-950 text-xs font-sans space-y-1">
-            <span className="font-semibold">Catatan Tambahan:</span>
+            <span className="font-semibold">Postscript:</span>
             <p>{giftData.letter.secretPostscript}</p>
           </div>
         )}
@@ -79,12 +79,12 @@ export const LoveLetterSection: React.FC = () => {
             {copied ? (
               <>
                 <Check className="w-4 h-4 text-emerald-600" />
-                <span className="text-emerald-700">Tersalin ke Clipboard</span>
+                <span className="text-emerald-700">Copied to Clipboard</span>
               </>
             ) : (
               <>
                 <Copy className="w-4 h-4 text-amber-700" />
-                <span>Salin Isi Surat</span>
+                <span>Copy Letter Content</span>
               </>
             )}
           </button>

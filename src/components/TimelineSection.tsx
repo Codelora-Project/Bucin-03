@@ -25,13 +25,13 @@ export const TimelineSection: React.FC = () => {
       {/* Section Header */}
       <div className="text-center space-y-3">
         <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-amber-100/80 text-amber-900 text-xs font-semibold uppercase tracking-wider border border-amber-300/60 font-sans">
-          Rangkaian Cerita Hubungan
+          Relationship Journey
         </div>
         <h2 className="text-3xl md:text-5xl font-serif font-bold text-stone-900">
-          Timeline Perjalanan Hubungan
+          Relationship Journey Timeline
         </h2>
         <p className="text-stone-600 text-base max-w-xl mx-auto font-sans leading-relaxed">
-          Dari obrolan awal hingga momen ulang tahun istimewa hari ini.
+          From early conversations to today's special birthday moment.
         </p>
       </div>
 

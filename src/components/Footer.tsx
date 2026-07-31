@@ -12,10 +12,10 @@ export const Footer: React.FC = () => {
         {/* Main Footer Message */}
         <div className="space-y-2">
           <h3 className="text-2xl md:text-3xl font-serif font-bold text-amber-950">
-            Dibuat Khusus untuk {giftData.recipientName}
+            Created Specially for {giftData.recipientName}
           </h3>
           <p className="text-stone-600 text-xs md:text-sm max-w-md mx-auto leading-relaxed">
-            Semoga kado digital ini memberikan kebahagiaan di hari spesialmu.
+            May this digital gift bring happiness to your special day.
           </p>
         </div>
 
@@ -26,7 +26,7 @@ export const Footer: React.FC = () => {
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/90 hover:bg-amber-100/80 text-amber-950 text-xs font-semibold transition-all shadow-sm border border-amber-300/80 hover:shadow cursor-pointer"
           >
             <Code2 className="w-3.5 h-3.5 text-amber-700" />
-            <span>Cara Edit Konten (Untuk Pembuat Kado)</span>
+            <span>How to Edit Content (For Gift Creator)</span>
           </button>
         </div>
 
@@ -62,10 +62,10 @@ export const Footer: React.FC = () => {
 
               <div className="space-y-2">
                 <div className="inline-flex items-center px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-semibold border border-amber-300/60">
-                  Panduan Edit Konten
+                  Content Editing Guide
                 </div>
                 <h3 className="text-2xl font-serif font-bold text-stone-900">
-                  Di mana Mengganti Foto, Teks & Tanggal?
+                  Where to Change Photos, Text & Dates?
                 </h3>
               </div>
 
@@ -73,25 +73,25 @@ export const Footer: React.FC = () => {
                 <div className="p-4 rounded-2xl bg-amber-50 border border-amber-200 space-y-2">
                   <div className="flex items-center gap-2 font-bold text-amber-900 text-xs uppercase tracking-wider">
                     <FileText className="w-4 h-4 text-amber-700" />
-                    <span>File Terpusat: src/data/giftData.ts</span>
+                    <span>Centralized File: src/data/giftData.ts</span>
                   </div>
                   <p className="text-xs text-stone-600">
-                    Semua isi website (nama pasangan, tanggal countdown, teka-teki puzzle, foto galeri, timeline, surat cinta, dan playlist Spotify) disimpan di satu file ini.
+                    All website contents (partner name, countdown date, puzzle quiz, gallery photos, timeline, love letter, and Spotify playlist) are stored in this single file.
                   </p>
                 </div>
 
                 <ul className="space-y-2.5 text-xs text-stone-700">
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-4 h-4 text-amber-700 shrink-0 mt-0.5" />
-                    <span><strong>Ganti Nama & Tanggal:</strong> Ubah <code>targetDate</code> (ISO format) dan <code>recipientName</code>.</span>
+                    <span><strong>Change Name & Date:</strong> Update <code>targetDate</code> (ISO format) and <code>recipientName</code>.</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-4 h-4 text-amber-700 shrink-0 mt-0.5" />
-                    <span><strong>Ganti Foto & Video:</strong> Masukkan file foto ke folder <code>public/</code> dan ganti URL di <code>gallery</code>.</span>
+                    <span><strong>Change Photos & Media:</strong> Add image files to <code>public/</code> folder and update URLs in <code>gallery</code>.</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-4 h-4 text-amber-700 shrink-0 mt-0.5" />
-                    <span><strong>Ganti Playlist Spotify:</strong> Copy-paste link embed playlist Spotify kamu ke <code>spotifyEmbedUrl</code>.</span>
+                    <span><strong>Change Spotify Playlist:</strong> Update song titles and Spotify URLs in <code>topSongs</code>.</span>
                   </li>
                 </ul>
               </div>
@@ -101,7 +101,7 @@ export const Footer: React.FC = () => {
                   onClick={() => setShowGuideModal(false)}
                   className="px-5 py-2.5 rounded-xl bg-amber-800 hover:bg-amber-900 text-white text-xs font-semibold transition-colors cursor-pointer shadow-sm"
                 >
-                  Paham, Tutup Panduan
+                  Got It, Close Guide
                 </button>
               </div>
             </motion.div>

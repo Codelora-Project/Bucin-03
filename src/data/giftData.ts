@@ -79,210 +79,210 @@ export interface GiftData {
 
 export const giftData: GiftData = {
   // =========================================================================
-  // 1. DATA UTAMA (NAMA & TANGGAL TARGET COUNTDOWN)
+  // 1. MAIN DATA (NAME & COUNTDOWN TARGET DATE)
   // =========================================================================
-  recipientName: "Sayangku",
-  senderName: "Pasanganmu",
+  recipientName: "My Sweetheart",
+  senderName: "Your Partner",
   birthdayAge: 23,
 
   targetDate: "2026-08-15T00:00:00",
 
-  devInstructions: "Tips: Klik 'Preview Mode' di sudut kanan bawah untuk membuka kunci kado saat mengetes website.",
+  devInstructions: "Tip: Click 'Preview Mode' in the bottom right corner to unlock the gift while testing the website.",
 
   // =========================================================================
-  // 2. TEKA-TEKI / PUZZLE UNLOCK
+  // 2. PUZZLE UNLOCK MISSION
   // =========================================================================
   puzzleConfig: {
-    title: "Misi Teka-Teki Kenangan Berdua",
-    description: "Sebelum membuka kado ini, mari uji ingatanmu tentang momen-momen manis kita berdua. Jawab teka-teki berikut dengan benar.",
+    title: "Memory Puzzle Mission",
+    description: "Before opening this gift, let's test your memory of our sweet moments together. Answer the following puzzles correctly.",
     questions: [
       {
         id: 1,
-        question: "Di mana tempat kencan atau momen paling berkesan saat pertama kali kita main bareng?",
-        hint: "Ingat cafe atau tempat nongkrong yang membuat kita ngobrol sampai lupa waktu. [GANTI_HINT_1]",
+        question: "Where was our most memorable date or hangout spot when we first spent time together?",
+        hint: "Remember the cafe or hangout spot that made us chat until we forgot about time. [CHANGE_HINT_1]",
         type: "text",
-        correctAnswers: ["cafe", "kopi", "taman", "kedai kopi", "[ganti_jawaban_1]"]
+        correctAnswers: ["cafe", "coffee", "park", "coffee shop", "[change_answer_1]"]
       },
       {
         id: 2,
-        question: "Makanan atau jajanan apa yang paling sering kita makan bareng?",
-        hint: "Jajanan favorit yang sering kita beli pas malam hari. [GANTI_HINT_2]",
+        question: "What food or snack did we eat together most often?",
+        hint: "Our favorite late night snack we often bought. [CHANGE_HINT_2]",
         type: "text",
-        correctAnswers: ["seblak", "mie ayam", "bakso", "martabak", "[ganti_jawaban_2]"]
+        correctAnswers: ["seblak", "noodles", "meatball", "martabak", "ramen", "[change_answer_2]"]
       },
       {
         id: 3,
-        question: "Berapa tingkat kebahagiaan kamu selama menjalani hubungan bersama aku?",
-        hint: "Pilih jawaban paling berkesan dari hati.",
+        question: "What is your happiness level during our relationship together?",
+        hint: "Choose the most meaningful answer from your heart.",
         type: "choice",
         options: [
-          "100/10 (Sangat Bahagia)",
-          "1000/10 (Sangat Istimewa)",
-          "Tak Terhingga"
+          "100/10 (Very Happy)",
+          "1000/10 (Very Special)",
+          "Infinity"
         ],
         correctAnswers: [
-          "100/10 (Sangat Bahagia)",
-          "1000/10 (Sangat Istimewa)",
-          "Tak Terhingga"
+          "100/10 (Very Happy)",
+          "1000/10 (Very Special)",
+          "Infinity"
         ]
       }
     ]
   },
 
   // =========================================================================
-  // 3. GALERI FOTO POLAROID KENANGAN
+  // 3. POLAROID PHOTO GALLERY
   // =========================================================================
   gallery: [
     {
       id: "gal-1",
       url: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=1200&auto=format&fit=crop",
-      caption: "Senyum kamu saat pertama kali jalan bareng.",
+      caption: "Your smile when we first walked together.",
       date: "12 Jan 2024",
-      location: "Taman Kota",
+      location: "City Park",
       rotation: -3.8
     },
     {
       id: "gal-2",
       url: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1200&auto=format&fit=crop",
-      caption: "Momen santai di akhir pekan mengobrol bersama.",
+      caption: "Relaxing weekend chatting together.",
       date: "24 Feb 2024",
-      location: "Cafe Favorit",
+      location: "Favorite Cafe",
       rotation: 1.8
     },
     {
       id: "gal-3",
       url: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=1200&auto=format&fit=crop",
-      caption: "Momen penuh tawa di pantai.",
+      caption: "Laughter-filled moment at the beach.",
       date: "15 Mar 2024",
-      location: "Pantai Indah",
+      location: "Beautiful Beach",
       rotation: -1.5
     },
     {
       id: "gal-4",
       url: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=1200&auto=format&fit=crop",
-      caption: "Liburan manis di pegunungan.",
-      date: "10 Mei 2024",
-      location: "Puncak Gunung",
+      caption: "Sweet vacation in the mountains.",
+      date: "10 May 2024",
+      location: "Mountain Peak",
       rotation: 2.5
     },
     {
       id: "gal-5",
       url: "https://images.unsplash.com/photo-1494774157365-9e04c6720e47?q=80&w=1200&auto=format&fit=crop",
-      caption: "Kejutan manis di hari spesial.",
+      caption: "Sweet surprise on a special day.",
       date: "20 Jun 2024",
-      location: "Rumah",
+      location: "Home",
       rotation: 1.5
     },
     {
       id: "gal-6",
       url: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1200&auto=format&fit=crop",
-      caption: "Foto berdua penuh kehangatan.",
+      caption: "Warm photo of us together.",
       date: "04 Jul 2024",
-      location: "Tepi Pantai",
+      location: "Seaside",
       rotation: -2.0
     },
     {
       id: "gal-7",
       url: "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1200&auto=format&fit=crop",
-      caption: "Potret selfie kebersamaan kita.",
-      date: "18 Agu 2024",
-      location: "Studio Foto",
+      caption: "Our cozy selfie together.",
+      date: "18 Aug 2024",
+      location: "Photo Studio",
       rotation: 2.2
     },
     {
       id: "gal-8",
       url: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop",
-      caption: "Kenangan manis di sore hari.",
+      caption: "Sweet memory in the afternoon.",
       date: "29 Sep 2024",
-      location: "Taman Bunga",
+      location: "Flower Garden",
       rotation: -1.8
     }
   ],
 
   // =========================================================================
-  // 4. TIMELINE PERJALANAN HUBUNGAN
+  // 4. RELATIONSHIP TIMELINE
   // =========================================================================
   timeline: [
     {
       id: "time-1",
-      date: "15 Oktober 2023",
-      title: "Awal Pertemuan & Saling Sapa",
-      description: "Hari pertama kita mengobrol secara intens. Obrolan terasa mengalir begitu saja dan penuh kenyamanan.",
-      tag: "Awal Cerita",
+      date: "October 15, 2023",
+      title: "First Meeting & Saying Hello",
+      description: "The first day we talked intensely. The conversation flowed naturally and comfortably.",
+      tag: "Beginning",
       iconName: "Sparkles",
       imageUrl: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=800&auto=format&fit=crop"
     },
     {
       id: "time-2",
-      date: "12 November 2023",
-      title: "First Date / Kencan Pertama",
-      description: "Pertama kali jalan bersama. Mengingat momen awal yang penuh kesan manis.",
-      tag: "Kencan Pertama",
+      date: "November 12, 2023",
+      title: "First Date",
+      description: "Our first time going out together. Remembering sweet initial impressions.",
+      tag: "First Date",
       iconName: "Coffee",
       imageUrl: "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?q=80&w=800&auto=format&fit=crop"
     },
     {
       id: "time-3",
-      date: "01 Januari 2024",
-      title: "Resmi Bersama",
-      description: "Momen di mana kita sepakat untuk saling menjaga, melengkapi, dan berjalan berdampingan.",
-      tag: "Momen Spesial",
+      date: "January 01, 2024",
+      title: "Officially Together",
+      description: "The moment we agreed to take care of each other, complement each other, and walk side by side.",
+      tag: "Special Moment",
       iconName: "HeartHandshake",
       imageUrl: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=800&auto=format&fit=crop"
     },
     {
       id: "time-4",
-      date: "14 Februari 2024",
-      title: "Momen Kebersamaan",
-      description: "Tukeran kado kenangan dan menikmati waktu berkualitas bersama.",
-      tag: "Kenangan Manis",
+      date: "February 14, 2024",
+      title: "Moments Together",
+      description: "Exchanging keepsake gifts and enjoying quality time together.",
+      tag: "Sweet Memories",
       iconName: "Gift"
     },
     {
       id: "time-5",
-      date: "Hari Ini",
-      title: "Ulang Tahun Kamu yang Ke-23",
-      description: "Hari istimewa bagi orang yang paling berharga. Semoga selalu sehat, bahagia, dan tercapai semua impianmu.",
-      tag: "Hari Spesial",
+      date: "Today",
+      title: "Your 23rd Birthday",
+      description: "A special day for the most precious person. Wishing you good health, happiness, and all your dreams come true.",
+      tag: "Special Day",
       iconName: "Cake"
     }
   ],
 
   // =========================================================================
-  // 5. SURAT / PESAN CINTA
+  // 5. LOVE LETTER
   // =========================================================================
   letter: {
-    greeting: "Untuk [Nama Sayang] yang Sangat Berharga",
+    greeting: "To My Dearest [Sweetheart],",
     contentParagraphs: [
-      "Selamat ulang tahun. Di hari yang sangat istimewa ini, aku secara khusus membuat website kecil ini untukmu sebagai bentuk apresiasi dan rasa terima kasih atas setiap kehadiranmu dalam hidupku.",
-      "Terima kasih telah menjadi sosok yang selalu mendengarkan, memberi rasa nyaman, dan menghadirkan tawa di setiap kesempatan. Setiap momen yang telah kita lalui bersama selalu menjadi kenangan manis yang berharga.",
-      "Semoga di usiamu yang baru ini, kamu senantiasa dilimpahi kesehatan, kebahagiaan, serta kemudahan dalam mewujudkan impianmu. Aku akan selalu ada untuk mendukung dan mendampingi setiap langkahmu.",
-      "Semoga website sederhana ini memberikan kesan yang manis di hari ulang tahunmu."
+      "Happy birthday. On this very special day, I specially created this small website for you as a token of appreciation and gratitude for your presence in my life.",
+      "Thank you for always being someone who listens, provides comfort, and brings laughter to every occasion. Every moment we have shared together has become a precious, sweet memory.",
+      "May this new year of your life bring you an abundance of health, happiness, and ease in achieving your dreams. I will always be here to support and walk beside you in every step.",
+      "May this simple website leave a sweet impression on your birthday."
     ],
-    closing: "Dengan tulus,",
-    signature: "Pasanganmu",
-    secretPostscript: "Catatan: Jangan lupa mendengarkan kumpulan lagu kenangan di section Playlist."
+    closing: "Sincerely,",
+    signature: "Your Partner",
+    secretPostscript: "Note: Don't forget to listen to our memory playlist in the Playlist section."
   },
 
   // =========================================================================
-  // 6. PLAYLIST KENANGAN (MUSIC PASS CARD & TOP 5 SONGS)
+  // 6. MEMORY PLAYLIST (MUSIC PASS CARD & TOP 5 SONGS)
   // =========================================================================
   playlist: {
-    quote: "Hidup bagaikan rekaman lagu, dan setiap melodi terbaik selalu mengingatkan aku padamu.",
-    buddiesLabel: "Lagu kenangan favorit kita",
+    quote: "Life is like a song recording, and every best melody always reminds me of you.",
+    buddiesLabel: "Our favorite memory songs",
     
     musicCard: {
       title: "Music Gift Pass",
-      name: "Untuk Sayangku",
+      name: "For My Love",
       song: "Sampai Jadi Debu",
       artist: "Banda Neira",
-      album: "Kenangan Manis Berdua",
-      issuedDate: "Spesial Ulang Tahun",
+      album: "Sweet Memories Together",
+      issuedDate: "Birthday Special",
       photoUrl: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=400&auto=format&fit=crop",
-      code: "#HUT-2026-LOVE"
+      code: "#HBD-2026-LOVE"
     },
 
-    topSongsTitle: "Lagu Kenangan Favorit Kita",
+    topSongsTitle: "Our Favorite Memory Songs",
     topSongs: [
       {
         id: "song-1",

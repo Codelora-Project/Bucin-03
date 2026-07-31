@@ -101,18 +101,18 @@ export const App: React.FC = () => {
               animate={{ scale: 1, opacity: 1 }}
               className="inline-flex items-center px-4 py-1.5 rounded-full bg-amber-100/90 text-amber-900 text-xs font-semibold uppercase tracking-wider border border-amber-300/60"
             >
-              Selamat Ulang Tahun Ke-{giftData.birthdayAge}
+              Happy {giftData.birthdayAge}rd Birthday
             </motion.div>
 
             <h1 className="text-4xl md:text-6xl font-serif font-bold text-stone-900 leading-tight">
-              Selamat Ulang Tahun, <br />
+              Happy Birthday, <br />
               <span className="glow-gold-text italic block mt-1">
                 {giftData.recipientName}
               </span>
             </h1>
 
             <p className="text-stone-600 text-base md:text-lg max-w-xl mx-auto font-sans leading-relaxed">
-              Website ini khusus kubuat untuk merayakan momen spesialmu. Selamat menjelajahi semua kenangan indah di bawah ini.
+              I created this website specially to celebrate your special moment. Enjoy exploring all the sweet memories below.
             </p>
           </section>
 

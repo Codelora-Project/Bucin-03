@@ -54,7 +54,7 @@ export const PuzzleGate: React.FC<PuzzleGateProps> = ({ onUnlockSuccess }) => {
         }, 1600);
       }
     } else {
-      setErrorMessage('Jawaban kurang tepat, silakan coba lagi atau lihat petunjuk.');
+      setErrorMessage('Answer is incorrect, please try again or check the hint.');
       setShowHint(true);
     }
   };
@@ -63,7 +63,7 @@ export const PuzzleGate: React.FC<PuzzleGateProps> = ({ onUnlockSuccess }) => {
     e.preventDefault();
     const val = userInputs[currentQuestion.id] || '';
     if (!val.trim()) {
-      setErrorMessage('Silakan isi jawaban terlebih dahulu.');
+      setErrorMessage('Please enter your answer first.');
       return;
     }
     checkAnswer(val);
@@ -117,7 +117,7 @@ export const PuzzleGate: React.FC<PuzzleGateProps> = ({ onUnlockSuccess }) => {
               >
                 <div className="bg-amber-50/80 p-5 rounded-2xl border border-amber-200/80">
                   <div className="text-xs font-semibold text-amber-800 uppercase tracking-wider mb-2 font-sans">
-                    Pertanyaan #{currentStep + 1} dari {questions.length}
+                    Question #{currentStep + 1} of {questions.length}
                   </div>
                   <h3 className="text-lg md:text-xl font-serif font-semibold text-stone-900 leading-snug">
                     {currentQuestion.question}
@@ -130,7 +130,7 @@ export const PuzzleGate: React.FC<PuzzleGateProps> = ({ onUnlockSuccess }) => {
                     <div>
                       <input
                         type="text"
-                        placeholder="Ketik jawabanmu di sini..."
+                        placeholder="Type your answer here..."
                         value={userInputs[currentQuestion.id] || ''}
                         onChange={(e) => setUserInputs({ ...userInputs, [currentQuestion.id]: e.target.value })}
                         className="w-full px-4 py-3.5 rounded-xl border border-amber-300 focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white/95 text-stone-900 text-base shadow-sm font-sans"
@@ -154,14 +154,14 @@ export const PuzzleGate: React.FC<PuzzleGateProps> = ({ onUnlockSuccess }) => {
                         onClick={() => setShowHint(!showHint)}
                         className="text-xs text-amber-800 font-semibold hover:underline cursor-pointer font-sans"
                       >
-                        {showHint ? 'Sembunyikan Petunjuk' : 'Lihat Petunjuk'}
+                        {showHint ? 'Hide Hint' : 'Show Hint'}
                       </button>
 
                       <button
                         type="submit"
                         className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-amber-700 hover:bg-amber-800 text-white font-semibold text-sm shadow-sm transition-all cursor-pointer font-sans"
                       >
-                        <span>Lanjutkan</span>
+                        <span>Continue</span>
                         <ArrowRight className="w-4 h-4" />
                       </button>
                     </div>
@@ -187,7 +187,7 @@ export const PuzzleGate: React.FC<PuzzleGateProps> = ({ onUnlockSuccess }) => {
                     animate={{ opacity: 1, height: 'auto' }}
                     className="p-4 rounded-2xl bg-amber-100/80 border border-amber-200 text-amber-950 text-xs font-sans leading-relaxed"
                   >
-                    <div className="font-bold text-amber-900 mb-1">Petunjuk:</div>
+                    <div className="font-bold text-amber-900 mb-1">Hint:</div>
                     <p>{currentQuestion.hint}</p>
                   </motion.div>
                 )}
@@ -202,10 +202,10 @@ export const PuzzleGate: React.FC<PuzzleGateProps> = ({ onUnlockSuccess }) => {
                   <CheckCircle2 className="w-10 h-10" />
                 </div>
                 <h3 className="text-3xl font-serif font-bold text-stone-900">
-                  Semua Jawaban Benar
+                  All Answers Correct!
                 </h3>
                 <p className="text-stone-600 text-sm max-w-sm mx-auto">
-                  Akses kado ulang tahun telah terbuka. Menyiapkan tampilan...
+                  Access to the birthday gift is unlocked. Preparing display...
                 </p>
               </motion.div>
             )}

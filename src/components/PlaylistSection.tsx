@@ -58,19 +58,19 @@ export const PlaylistSection: React.FC = () => {
                     {data.musicCard.title}
                   </div>
                   <div>
-                    <span className="text-amber-900/60 text-[11px]">Nama : </span>
+                    <span className="text-amber-900/60 text-[11px]">Name: </span>
                     <span className="font-semibold">{data.musicCard.name}</span>
                   </div>
                   <div>
-                    <span className="text-amber-900/60 text-[11px]">Lagu : </span>
+                    <span className="text-amber-900/60 text-[11px]">Song: </span>
                     <span className="font-semibold">{data.musicCard.song}</span>
                   </div>
                   <div>
-                    <span className="text-amber-900/60 text-[11px]">Artis : </span>
+                    <span className="text-amber-900/60 text-[11px]">Artist: </span>
                     <span className="font-semibold">{data.musicCard.artist}</span>
                   </div>
                   <div className="truncate">
-                    <span className="text-amber-900/60 text-[11px]">Album : </span>
+                    <span className="text-amber-900/60 text-[11px]">Album: </span>
                     <span className="font-semibold">{data.musicCard.album}</span>
                   </div>
                 </div>
@@ -100,7 +100,7 @@ export const PlaylistSection: React.FC = () => {
                 <button
                   onClick={() => window.open(`https://open.spotify.com/search/${encodeURIComponent(data.musicCard.song)}`, '_blank')}
                   className="w-8 h-8 rounded-full bg-amber-800 hover:bg-amber-900 text-white flex items-center justify-center shadow-sm transition-colors cursor-pointer"
-                  title="Putar Lagu di Spotify"
+                  title="Play Song on Spotify"
                 >
                   <Play className="w-3.5 h-3.5 fill-white ml-0.5" />
                 </button>
@@ -179,7 +179,7 @@ export const PlaylistSection: React.FC = () => {
                             ? 'bg-amber-800 text-white'
                             : 'bg-amber-100 hover:bg-amber-200 text-amber-900'
                         }`}
-                        title="Putar di Spotify"
+                        title="Play on Spotify"
                       >
                         {isCurrentlyPlaying ? (
                           <Pause className="w-3.5 h-3.5 fill-white" />

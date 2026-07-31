@@ -55,30 +55,30 @@ export const CountdownGate: React.FC<CountdownGateProps> = ({ onCountdownEnded, 
       >
         {/* Minimal Subtitle Badge */}
         <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-amber-100/80 text-amber-900 text-xs font-semibold tracking-wider uppercase border border-amber-300/60 font-sans">
-          Momen Istimewa Menuju Ulang Tahun
+          Special Birthday Moments Countdown
         </div>
 
         {/* Header Title in Cormorant Garamond */}
         <div className="space-y-3">
           <h1 className="text-4xl md:text-6xl font-serif text-stone-900 tracking-tight leading-tight">
-            Kado Ulang Tahun Spesial <br />
-            <span className="text-stone-700 font-normal">untuk</span>{' '}
+            Special Birthday Gift <br />
+            <span className="text-stone-700 font-normal">for</span>{' '}
             <span className="glow-gold-text italic font-semibold block mt-1">
               {giftData.recipientName}
             </span>
           </h1>
           <p className="text-stone-600 text-sm md:text-base max-w-lg mx-auto font-sans leading-relaxed pt-1">
-            Hitung mundur menuju detik-detik kado ulang tahun terbuka.
+            Counting down to the moment the birthday gift unlocks.
           </p>
         </div>
 
         {/* Warm Glowing Countdown Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4 my-8">
           {[
-            { label: 'Hari', value: timeLeft.days },
-            { label: 'Jam', value: timeLeft.hours },
-            { label: 'Menit', value: timeLeft.minutes },
-            { label: 'Detik', value: timeLeft.seconds }
+            { label: 'Days', value: timeLeft.days },
+            { label: 'Hours', value: timeLeft.hours },
+            { label: 'Minutes', value: timeLeft.minutes },
+            { label: 'Seconds', value: timeLeft.seconds }
           ].map((item, idx) => (
             <motion.div
               key={item.label}
@@ -99,9 +99,9 @@ export const CountdownGate: React.FC<CountdownGateProps> = ({ onCountdownEnded, 
 
         {/* Lock Status Card without emojis or lock icons */}
         <div className="glass-card rounded-2xl p-5 border border-amber-300/50 max-w-md mx-auto shadow-sm text-center">
-          <h4 className="font-serif font-semibold text-stone-900 text-base">Akses Konten Belum Terbuka</h4>
+          <h4 className="font-serif font-semibold text-stone-900 text-base">Content Access Not Yet Open</h4>
           <p className="text-xs text-stone-600 leading-relaxed font-sans mt-1">
-            Galeri kenangan, surat cinta, dan playlist akan terbuka otomatis saat waktu hitung mundur selesai.
+            The memory gallery, love letter, and playlist will unlock automatically when the countdown completes.
           </p>
         </div>
 
@@ -115,7 +115,7 @@ export const CountdownGate: React.FC<CountdownGateProps> = ({ onCountdownEnded, 
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-stone-900 text-amber-300 text-xs font-semibold hover:bg-stone-800 transition-colors cursor-pointer border border-amber-500/20 shadow-sm font-sans"
           >
             <Eye className="w-4 h-4 text-amber-400" />
-            <span>Buka Kado Sekarang (Preview Mode)</span>
+            <span>Open Gift Now (Preview Mode)</span>
           </button>
         </div>
       </motion.div>

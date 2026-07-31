@@ -20,13 +20,13 @@ export const GallerySection: React.FC = () => {
       {/* Section Header */}
       <div className="text-center space-y-3">
         <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-amber-100/80 text-amber-900 text-xs font-semibold uppercase tracking-wider border border-amber-300/60 font-sans">
-          Bingkai Kenangan Manis
+          Sweet Memory Frames
         </div>
         <h2 className="text-3xl md:text-5xl font-serif font-bold text-stone-900">
-          Galeri Foto Polaroid Kita
+          Our Polaroid Photo Gallery
         </h2>
         <p className="text-stone-600 text-base max-w-xl mx-auto font-sans leading-relaxed">
-          Kumpulan momen manis yang abadi tersimpan dalam setiap bingkai polaroid.
+          A collection of sweet moments timelessly captured in polaroid frames.
         </p>
       </div>
 
@@ -68,7 +68,7 @@ export const GallerySection: React.FC = () => {
                 <div className="relative aspect-[3/4] bg-stone-100 overflow-hidden border border-stone-200/50 shadow-inner">
                   <img
                     src={item.url}
-                    alt={item.caption || "Foto Kenangan"}
+                    alt={item.caption || "Memory Photo"}
                     className="w-full h-full object-cover"
                     loading="lazy"
                   />
