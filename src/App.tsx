@@ -107,7 +107,7 @@ export const App: React.FC = () => {
           />
 
           {/* Hero Welcome Banner */}
-          <section className="pt-10 pb-12 px-4 text-center max-w-4xl mx-auto space-y-4 font-sans">
+          <section className="pt-20 sm:pt-24 pb-12 px-4 text-center max-w-4xl mx-auto space-y-4 font-sans">
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
