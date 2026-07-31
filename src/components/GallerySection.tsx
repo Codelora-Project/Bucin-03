@@ -56,10 +56,10 @@ export const GallerySection: React.FC = () => {
                 transition={{ delay: idx * 0.05, duration: 0.4 }}
                 whileHover={{
                   rotate: 0,
-                  scale: 1.0,
-                  y: 0,
+                  scale: 1.05,
+                  y: -5,
                   x: 0,
-                  zIndex: 50,
+                  zIndex: 30,
                   transition: { type: 'spring', stiffness: 280, damping: 18 }
                 }}
                 className="bg-white p-3 pt-3 pb-8 md:p-4 md:pt-4 md:pb-12 shadow-xl hover:shadow-2xl border border-stone-200/90 relative flex flex-col rounded-xs select-none cursor-pointer"

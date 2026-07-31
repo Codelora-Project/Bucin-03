@@ -38,7 +38,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   ];
 
   return (
-    <header className="fixed top-2 sm:top-4 left-1/2 -translate-x-1/2 w-full max-w-4xl px-2 sm:px-4 z-50 transition-all duration-300">
+    <header className="fixed top-2 sm:top-4 left-1/2 -translate-x-1/2 w-full max-w-4xl px-2 sm:px-4 z-[100] transition-all duration-300">
       <nav
         className={`rounded-full p-1 sm:p-2 border transition-all duration-300 flex items-center justify-between gap-0.5 sm:gap-2 ${
           isScrolled
