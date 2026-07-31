@@ -1,97 +1,171 @@
 import React from 'react';
 import { giftData, TimelineItem } from '../data/giftData';
 import { motion } from 'framer-motion';
-import { Sparkles, Coffee, HeartHandshake, Gift, Cake, Calendar } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 
-const iconMap: Record<string, React.FC<{ className?: string }>> = {
-  Sparkles,
-  Coffee,
-  HeartHandshake,
-  Gift,
-  Cake
+const defaultImages = [
+  "https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=800&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?q=80&w=800&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=800&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=800&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1513151233558-d860c5398176?q=80&w=800&auto=format&fit=crop"
+];
+
+const parseDateDisplay = (dateStr: string) => {
+  if (dateStr.toLowerCase().includes('today')) {
+    return { year: 'TODAY', subDate: 'Special Day' };
+  }
+  const match = dateStr.match(/\d{4}/);
+  const year = match ? match[0] : '2024';
+  const subDate = dateStr.replace(/\d{4}/, '').replace(/,/g, '').trim();
+  return { year, subDate };
 };
 
 export const TimelineSection: React.FC = () => {
-  const getIcon = (iconName?: string) => {
-    if (iconName && iconMap[iconName]) {
-      const IconComponent = iconMap[iconName];
-      return <IconComponent className="w-4 h-4" />;
-    }
-    return <Sparkles className="w-4 h-4" />;
-  };
+  const items = giftData.timeline;
 
   return (
-    <section id="timeline" className="py-12 md:py-20 px-4 max-w-4xl mx-auto space-y-12">
+    <section id="timeline" className="py-16 md:py-24 px-4 max-w-5xl mx-auto relative overflow-hidden font-sans">
       {/* Section Header */}
-      <div className="text-center space-y-3">
-        <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-amber-100/80 text-amber-900 text-xs font-semibold uppercase tracking-wider border border-amber-300/60 font-sans">
+      <div className="text-center space-y-3 mb-16 relative z-10">
+        <div className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-amber-100/90 text-amber-900 text-xs font-semibold uppercase tracking-wider border border-amber-300/60 shadow-xs">
+          <Sparkles className="w-3.5 h-3.5 text-amber-700" />
           Relationship Journey
         </div>
-        <h2 className="text-3xl md:text-5xl font-serif font-bold text-stone-900">
+        <h2 className="text-3xl md:text-5xl font-serif font-bold text-stone-900 tracking-tight">
           Relationship Journey Timeline
         </h2>
-        <p className="text-stone-600 text-base max-w-xl mx-auto font-sans leading-relaxed">
-          From early conversations to today's special birthday moment.
+        <p className="text-stone-600 text-base max-w-xl mx-auto leading-relaxed">
+          From our first hello to today's special birthday celebration.
         </p>
       </div>
 
-      {/* Vertical Timeline Container */}
-      <div className="relative border-l-2 border-amber-300/60 ml-4 sm:ml-32 space-y-10">
-        {giftData.timeline.map((item: TimelineItem, idx: number) => (
-          <motion.div
-            key={item.id}
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: idx * 0.1, duration: 0.5 }}
-            className="relative pl-6 sm:pl-8 group"
-          >
-            {/* Timeline Icon Marker Node */}
-            <div className="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-amber-800 text-white flex items-center justify-center shadow-md ring-4 ring-amber-100/80 group-hover:scale-105 transition-transform">
-              {getIcon(item.iconName)}
-            </div>
+      {/* Main Timeline Wrapper */}
+      <div className="relative">
+        {/* Desktop Winding Serpentine SVG Path */}
+        <div className="hidden md:block absolute inset-0 pointer-events-none z-0">
+          <svg className="w-full h-full overflow-visible" viewBox="0 0 1000 1900" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="serpentineGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#b45309" />
+                <stop offset="25%" stopColor="#d97706" />
+                <stop offset="50%" stopColor="#ea580c" />
+                <stop offset="75%" stopColor="#f59e0b" />
+                <stop offset="100%" stopColor="#b45309" />
+              </linearGradient>
+              <filter id="pathGlow" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="5" result="blur" />
+                <feComposite in="SourceGraphic" in2="blur" operator="over" />
+              </filter>
+            </defs>
 
-            {/* Date Tag Desktop (Left side) */}
-            <div className="hidden sm:block absolute -left-36 top-2.5 w-28 text-right font-serif font-semibold text-xs text-amber-900 tracking-wide">
-              {item.date}
-            </div>
+            {/* Glowing serpentine winding bezier path passing through node centers */}
+            <path
+              d="M 250 120 
+                 C 600 120, 750 320, 750 500 
+                 C 750 680, 250 720, 250 900 
+                 C 250 1080, 750 1120, 750 1300 
+                 C 750 1480, 250 1520, 250 1700"
+              fill="none"
+              stroke="url(#serpentineGradient)"
+              strokeWidth="8"
+              strokeLinecap="round"
+              filter="url(#pathGlow)"
+              className="opacity-90"
+            />
+          </svg>
+        </div>
 
-            {/* Timeline Card */}
-            <div className="glass-card rounded-2xl p-5 md:p-6 border border-amber-300/50 space-y-3 shadow-sm group-hover:shadow-md transition-all">
-              {/* Date Mobile */}
-              <div className="sm:hidden inline-flex items-center gap-1 text-xs font-semibold text-amber-900 mb-1 font-sans">
-                <Calendar className="w-3.5 h-3.5 text-amber-700" />
-                <span>{item.date}</span>
-              </div>
+        {/* Mobile Vertical Curved Guide Line */}
+        <div className="md:hidden absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-1 bg-gradient-to-b from-amber-600 via-orange-500 to-amber-500 rounded-full opacity-60 pointer-events-none" />
 
-              <div className="flex items-start justify-between gap-2">
-                <h3 className="text-lg md:text-xl font-serif font-semibold text-stone-900 leading-snug">
-                  {item.title}
-                </h3>
-                <span className="px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-950 text-[11px] font-semibold shrink-0 font-sans border border-amber-300/50">
-                  {item.tag}
-                </span>
-              </div>
+        {/* Timeline Items */}
+        <div className="space-y-20 md:space-y-32 relative z-10">
+          {items.map((item: TimelineItem, idx: number) => {
+            const { year, subDate } = parseDateDisplay(item.date);
+            const isEven = idx % 2 === 0;
+            const imgSrc = item.imageUrl || defaultImages[idx % defaultImages.length];
 
-              <p className="text-stone-700 text-sm md:text-base font-sans leading-relaxed">
-                {item.description}
-              </p>
+            return (
+              <motion.div
+                key={item.id}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-50px' }}
+                transition={{ duration: 0.6, delay: idx * 0.1 }}
+                className={`flex flex-col md:flex-row items-center gap-8 md:gap-12 ${
+                  isEven ? 'md:flex-row' : 'md:flex-row-reverse'
+                }`}
+              >
+                {/* 1. Milestone Polaroid Photo Frame Node (No caption inside) */}
+                <div className="w-full md:w-1/2 flex justify-center relative group">
+                  <div
+                    className={`relative bg-amber-50/95 p-3.5 pt-3.5 pb-9 sm:p-4 sm:pt-4 sm:pb-11 rounded-2xl border border-amber-200/80 shadow-xl group-hover:shadow-2xl transition-all duration-500 z-10 group-hover:scale-105 group-hover:rotate-0 ${
+                      idx % 2 === 0 ? '-rotate-3' : 'rotate-3'
+                    }`}
+                  >
+                    {/* Decorative Washi Tape on Top */}
+                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-6 bg-amber-200/60 backdrop-blur-xs border border-amber-300/40 shadow-2xs z-20 rounded-xs pointer-events-none rotate-[-2deg]" />
 
-              {/* Optional Photo Attachment */}
-              {item.imageUrl && (
-                <div className="mt-3 rounded-xl overflow-hidden aspect-[16/9] bg-stone-100 max-h-56 shadow-sm border border-amber-200/60">
-                  <img
-                    src={item.imageUrl}
-                    alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
-                  />
+                    {/* Polaroid Photo Frame */}
+                    <div className="w-44 h-44 sm:w-52 sm:h-52 rounded-xl overflow-hidden bg-stone-100 border border-amber-200/60 relative">
+                      <img
+                        src={imgSrc}
+                        alt={item.title}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-amber-950/20 via-transparent to-transparent opacity-40 group-hover:opacity-10 transition-opacity" />
+                    </div>
+                  </div>
                 </div>
-              )}
-            </div>
-          </motion.div>
-        ))}
+
+                {/* 2. Text Info Card & Big Year Display */}
+                <div
+                  className={`w-full md:w-1/2 text-center ${
+                    isEven ? 'md:text-left' : 'md:text-right'
+                  } space-y-3`}
+                >
+                  {/* Prominent Year Header */}
+                  <div className="inline-block">
+                    <span className="text-4xl sm:text-5xl md:text-6xl font-serif font-extrabold text-amber-900 tracking-tight block leading-none drop-shadow-xs">
+                      {year}
+                    </span>
+                    <span className="text-xs sm:text-sm font-sans font-semibold text-amber-700 uppercase tracking-widest block mt-1">
+                      {subDate}
+                    </span>
+                  </div>
+
+                  {/* Card Box */}
+                  <div className="glass-card rounded-3xl p-6 sm:p-7 border border-amber-300/60 shadow-md hover:shadow-xl transition-all duration-300 relative group overflow-hidden">
+                    <div className="absolute -top-12 -right-12 w-24 h-24 bg-amber-400/20 rounded-full blur-xl group-hover:scale-150 transition-transform" />
+
+                    <div
+                      className={`flex items-center gap-2 mb-2 ${
+                        isEven ? 'md:justify-start' : 'md:justify-end'
+                      } justify-center`}
+                    >
+                      <span className="px-3 py-1 rounded-full bg-amber-100/90 text-amber-900 text-xs font-bold font-sans border border-amber-300/60 shadow-2xs">
+                        {item.tag}
+                      </span>
+                    </div>
+
+                    <h3 className="text-xl sm:text-2xl font-serif font-bold text-stone-900 leading-snug">
+                      {item.title}
+                    </h3>
+
+                    <p className="text-stone-700 text-sm sm:text-base font-sans leading-relaxed mt-2">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
 };
+
+
