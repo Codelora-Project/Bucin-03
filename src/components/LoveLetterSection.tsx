@@ -1,21 +1,13 @@
 import React, { useState } from 'react';
 import { giftData } from '../data/giftData';
 import { motion } from 'framer-motion';
-import { Copy, Check, Heart, ChevronUp, RotateCcw, Sparkles } from 'lucide-react';
+import { Heart, ChevronUp, RotateCcw, Sparkles } from 'lucide-react';
 
 export const LoveLetterSection: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [copied, setCopied] = useState<boolean>(false);
 
   const photo1 = giftData.gallery[0]?.url || "https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=600&auto=format&fit=crop";
   const photo2 = giftData.gallery[1]?.url || "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=600&auto=format&fit=crop";
-
-  const handleCopyLetter = () => {
-    const fullText = `${giftData.letter.greeting}\n\n${giftData.letter.contentParagraphs.join('\n\n')}\n\n${giftData.letter.closing}\n${giftData.letter.signature}`;
-    navigator.clipboard.writeText(fullText);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
 
   return (
     <section id="surat" className="py-16 md:py-24 px-4 max-w-5xl mx-auto space-y-10 font-sans">
@@ -35,7 +27,7 @@ export const LoveLetterSection: React.FC = () => {
         </p>
       </div>
 
-      {/* Main Interactive Open Envelope Container (Wider Container: max-w-3xl / sm:max-w-4xl) */}
+      {/* Main Interactive Open Envelope Container */}
       <div className="relative max-w-3xl md:max-w-4xl mx-auto">
         
         {/* Floating Pull Prompt Banner when closed */}
@@ -55,19 +47,19 @@ export const LoveLetterSection: React.FC = () => {
           </motion.div>
         )}
 
-        {/* ENVELOPE CONTAINER (Wider Deep Red Background & Off-White Paper Envelope) */}
+        {/* ENVELOPE CONTAINER */}
         <div className="relative w-full rounded-3xl overflow-hidden bg-[#7f1d1d] shadow-2xl border-4 border-[#991b1b] p-3 sm:p-6 md:p-8">
           
           {/* LAYER 1: BACK OF ENVELOPE & OPEN TOP FLAP CORNERS (DEEP RED) */}
           <div className="relative bg-[#ede8e1] rounded-2xl pt-6 pb-2 min-h-[440px] sm:min-h-[520px] overflow-hidden flex flex-col justify-between shadow-inner">
             
-            {/* Top Red Flap Corners (Responsive Clip-Path Triangles) */}
+            {/* Top Red Flap Corners */}
             <div className="absolute top-0 left-0 right-0 h-16 sm:h-28 pointer-events-none z-0 flex">
               <div className="w-1/2 h-full bg-[#7f1d1d]" style={{ clipPath: "polygon(0 0, 100% 0, 0 100%)" }} />
               <div className="w-1/2 h-full bg-[#7f1d1d]" style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%)" }} />
             </div>
 
-            {/* LAYER 2: THE LOVE LETTER CARD (SCALLOPED STAMP CARD) */}
+            {/* LAYER 2: THE LOVE LETTER CARD */}
             <div className="relative z-10 px-2 sm:px-8 pt-4">
               <motion.div
                 layout
@@ -199,8 +191,8 @@ export const LoveLetterSection: React.FC = () => {
                       </div>
                     )}
 
-                    {/* Action Buttons (Copy Letter & Re-fold Envelope) */}
-                    <div className="flex flex-wrap items-center justify-between gap-3 pt-6 border-t border-amber-900/10">
+                    {/* Action Buttons (Re-fold Envelope) */}
+                    <div className="flex items-center justify-start pt-6 border-t border-amber-900/10">
                       <button
                         onClick={(e) => {
                           e.stopPropagation();
@@ -210,26 +202,6 @@ export const LoveLetterSection: React.FC = () => {
                       >
                         <RotateCcw className="w-4 h-4 text-amber-800" />
                         <span>Masukkan Kembali Ke Amplop</span>
-                      </button>
-
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          handleCopyLetter();
-                        }}
-                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#7f1d1d] text-amber-100 text-xs sm:text-sm font-semibold hover:bg-[#991b1b] transition-colors shadow-sm cursor-pointer font-sans"
-                      >
-                        {copied ? (
-                          <>
-                            <Check className="w-4 h-4 text-emerald-400" />
-                            <span className="text-emerald-300">Berhasil Disalin!</span>
-                          </>
-                        ) : (
-                          <>
-                            <Copy className="w-4 h-4 text-amber-300" />
-                            <span>Salin Isi Surat</span>
-                          </>
-                        )}
                       </button>
                     </div>
                   </motion.div>
@@ -251,13 +223,13 @@ export const LoveLetterSection: React.FC = () => {
                 className="relative -mt-16 sm:-mt-24 z-20 bg-[#e2ddd5] border-t border-stone-300/80 shadow-2xl flex flex-col items-center justify-center text-center cursor-pointer group pt-12 pb-8 px-6 overflow-hidden rounded-b-2xl"
                 onClick={() => setIsOpen(true)}
               >
-                {/* V-Pocket Triangular Shadows (Fluid Clip-Path) */}
+                {/* V-Pocket Triangular Shadows */}
                 <div
                   className="absolute top-0 left-0 right-0 h-24 sm:h-32 bg-[#d8d2c7] opacity-90 shadow-md"
                   style={{ clipPath: "polygon(0 0, 50% 100%, 100% 0)" }}
                 />
 
-                {/* 3D Realistic Red Heart Wax Seal Button at the bottom V-notch */}
+                {/* 3D Realistic Red Heart Wax Seal Button */}
                 <div className="relative z-30 w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-tr from-red-950 via-[#7f1d1d] to-red-600 shadow-2xl border-2 border-red-500/40 flex items-center justify-center my-2 group-hover:scale-110 transition-transform cursor-pointer">
                   <div className="w-12 h-12 sm:w-15 sm:h-15 rounded-full border border-red-400/30 flex items-center justify-center bg-red-900/50">
                     <Heart className="w-7 h-7 sm:w-9 sm:h-9 fill-amber-200 text-amber-200 drop-shadow-md" />
@@ -280,9 +252,3 @@ export const LoveLetterSection: React.FC = () => {
     </section>
   );
 };
-
-
-
-
-
-
