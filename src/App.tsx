@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { giftData } from './data/giftData';
 import { FloatingHearts } from './components/FloatingHearts';
+import CustomCursor from './components/CustomCursor';
 import { CountdownGate } from './components/CountdownGate';
 import { PuzzleGate } from './components/PuzzleGate';
 import { Navbar } from './components/Navbar';
@@ -10,7 +11,7 @@ import { LoveLetterSection } from './components/LoveLetterSection';
 import { PlaylistSection } from './components/PlaylistSection';
 import { Footer } from './components/Footer';
 import { motion } from 'framer-motion';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Sparkles, Cake, Heart, Music, Image, Mail } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
 export const App: React.FC = () => {
@@ -85,7 +86,7 @@ export const App: React.FC = () => {
         origin: { y: 0.3 },
         colors: ['#d97706', '#b45309', '#fbbf24', '#f59e0b']
       });
-    } catch (e) {}
+    } catch (e) { }
   };
 
   const handleResetLock = () => {
@@ -121,6 +122,9 @@ export const App: React.FC = () => {
 
   return (
     <div className="relative min-h-screen overflow-x-hidden font-sans bg-gradient-to-br from-amber-100/90 via-orange-50/85 to-amber-100/70">
+      {/* Custom Pixel Star Cursor with Twinkling Trail */}
+      <CustomCursor />
+
       {/* Background Floating Warm Lights & Ambient Orbs */}
       <FloatingHearts />
 
@@ -156,19 +160,23 @@ export const App: React.FC = () => {
             onResetLock={handleResetLock}
           />
 
-          {/* Hero Welcome Banner (Full Viewport Screen so Gallery is not visible initially) */}
-          <section className="min-h-screen flex flex-col justify-center items-center pt-20 sm:pt-24 pb-12 px-4 text-center max-w-4xl mx-auto space-y-6 font-sans relative">
+          {/* Hero Welcome Banner (Full Viewport Screen with Stat Badges and Quick Action Buttons) */}
+          <section className="min-h-screen flex flex-col justify-center items-center pt-20 sm:pt-24 pb-12 px-4 text-center max-w-4xl mx-auto space-y-6 sm:space-y-7 font-sans relative">
+
+            {/* Birthday Badge */}
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              className="inline-flex items-center px-4 py-1.5 rounded-full bg-amber-100/90 text-amber-900 text-xs font-semibold uppercase tracking-wider border border-amber-300/60 shadow-xs"
+              className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-amber-100/90 text-amber-900 text-xs font-semibold uppercase tracking-wider border border-amber-300/60 shadow-2xs"
             >
+              <Cake className="w-3.5 h-3.5 text-amber-700" />
               Happy {giftData.birthdayAge}rd Birthday
             </motion.div>
 
+            {/* Main Greeting Typography */}
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-serif font-bold text-stone-900 leading-tight">
               Happy Birthday, <br />
-              <span className="glow-gold-text italic block mt-2">
+              <span className="glow-gold-text italic block mt-1">
                 {giftData.recipientName}
               </span>
             </h1>
@@ -177,17 +185,32 @@ export const App: React.FC = () => {
               I created this website specially to celebrate your special moment. Enjoy exploring all the sweet memories below.
             </p>
 
+            {/* Stat Badges */}
+            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 pt-1">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-card border border-amber-300/60 text-amber-950 text-xs sm:text-sm font-semibold shadow-xs">
+                <Cake className="w-4 h-4 text-amber-700" />
+                <span>{giftData.birthdayAge} Special Years</span>
+              </div>
+
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-card border border-amber-300/60 text-amber-950 text-xs sm:text-sm font-semibold shadow-xs">
+                <Heart className="w-4 h-4 fill-amber-700 text-amber-700" />
+                <span>Captured Memories</span>
+              </div>
+
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-card border border-amber-300/60 text-amber-950 text-xs sm:text-sm font-semibold shadow-xs">
+                <Music className="w-4 h-4 text-amber-700" />
+                <span>Made with Love</span>
+              </div>
+            </div>
+
             {/* Scroll Down Indicator */}
             <motion.div
               animate={{ y: [0, 8, 0] }}
               transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
-              className="pt-6 sm:pt-12 flex flex-col items-center cursor-pointer opacity-80 hover:opacity-100 transition-opacity"
-              onClick={() => {
-                const el = document.getElementById('galeri');
-                if (el) el.scrollIntoView({ behavior: 'smooth' });
-              }}
+              className="pt-4 sm:pt-8 flex flex-col items-center cursor-pointer opacity-80 hover:opacity-100 transition-opacity"
+              onClick={() => handleSelectSection('galeri')}
             >
-              <span className="text-xs font-bold text-amber-900 tracking-widest uppercase mb-1.5 font-sans">
+              <span className="text-[11px] sm:text-xs font-bold text-amber-900 tracking-widest uppercase mb-1 font-sans">
                 Scroll untuk Jelajahi
               </span>
               <ChevronDown className="w-5 h-5 text-amber-800" />

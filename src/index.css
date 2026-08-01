@@ -91,3 +91,10 @@
   animation: spinSlow 50s linear infinite;
 }
 
+/* Custom Pixel Star Cursor across all desktop pointer elements */
+@media (pointer: fine) {
+  body, button, a, input, select, textarea, [role="button"], .cursor-pointer, * {
+    cursor: none !important;
+  }
+}
+
