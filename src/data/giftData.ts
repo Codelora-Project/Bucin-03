@@ -22,6 +22,7 @@ export interface TopSongItem {
   title: string;
   artist: string;
   coverUrl: string;
+  audioUrl?: string;
   spotifyUrl?: string;
 }
 
@@ -289,35 +290,40 @@ export const giftData: GiftData = {
         title: "Sampai Jadi Debu",
         artist: "Banda Neira",
         coverUrl: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=200&auto=format&fit=crop",
+        audioUrl: "/assets/sampai-jadi-debu.mp3",
         spotifyUrl: "https://open.spotify.com/search/Sampai%20Jadi%20Debu%20Banda%20Neira"
       },
       {
         id: "song-2",
-        title: "Perfect",
-        artist: "Ed Sheeran",
+        title: "Shape of My Heart",
+        artist: "Sting",
         coverUrl: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=200&auto=format&fit=crop",
-        spotifyUrl: "https://open.spotify.com/search/Perfect%20Ed%20Sheeran"
+        audioUrl: "/assets/shape-of-my-heart.mp3",
+        spotifyUrl: "https://open.spotify.com/search/Shape%20of%20My%20Heart%20Sting"
       },
       {
         id: "song-3",
-        title: "Until I Found You",
-        artist: "Stephen Sanchez",
+        title: "Perfect",
+        artist: "Ed Sheeran",
         coverUrl: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=200&auto=format&fit=crop",
-        spotifyUrl: "https://open.spotify.com/search/Until%20I%20Found%20You"
+        audioUrl: "/assets/perfect.mp3",
+        spotifyUrl: "https://open.spotify.com/search/Perfect%20Ed%20Sheeran"
       },
       {
         id: "song-4",
-        title: "Monokrom",
-        artist: "Tulus",
+        title: "Until I Found You",
+        artist: "Stephen Sanchez",
         coverUrl: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=200&auto=format&fit=crop",
-        spotifyUrl: "https://open.spotify.com/search/Monokrom%20Tulus"
+        audioUrl: "/assets/until-i-found-you.mp3",
+        spotifyUrl: "https://open.spotify.com/search/Until%20I%20Found%20You"
       },
       {
         id: "song-5",
-        title: "Cinta Luar Biasa",
-        artist: "Andmesh",
+        title: "Monokrom",
+        artist: "Tulus",
         coverUrl: "https://images.unsplash.com/photo-1494774157365-9e04c6720e47?q=80&w=200&auto=format&fit=crop",
-        spotifyUrl: "https://open.spotify.com/search/Cinta%20Luar%20Biasa"
+        audioUrl: "/assets/monokrom.mp3",
+        spotifyUrl: "https://open.spotify.com/search/Monokrom%20Tulus"
       }
     ]
   }

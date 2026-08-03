@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { giftData } from './data/giftData';
 import { FloatingHearts } from './components/FloatingHearts';
 import CustomCursor from './components/CustomCursor';
+import { MusicProvider } from './context/MusicContext';
+import FloatingMusicPlayer from './components/FloatingMusicPlayer';
 import { CountdownGate } from './components/CountdownGate';
 import { PuzzleGate } from './components/PuzzleGate';
 import { Navbar } from './components/Navbar';
@@ -121,12 +123,13 @@ export const App: React.FC = () => {
   const showPuzzle = (isCountdownOver || isDevMode) && !isUnlocked;
 
   return (
-    <div className="relative min-h-screen overflow-x-hidden font-sans bg-gradient-to-br from-amber-100/90 via-orange-50/85 to-amber-100/70">
-      {/* Custom Pixel Star Cursor with Twinkling Trail */}
-      <CustomCursor />
+    <MusicProvider>
+      <div className="relative min-h-screen overflow-x-hidden font-sans bg-gradient-to-br from-amber-100/90 via-orange-50/85 to-amber-100/70">
+        {/* Custom Pixel Star Cursor with Twinkling Trail */}
+        <CustomCursor />
 
-      {/* Background Floating Warm Lights & Ambient Orbs */}
-      <FloatingHearts />
+        {/* Background Floating Warm Lights & Ambient Orbs */}
+        <FloatingHearts />
 
       {/* PHASE 1: COUNTDOWN GATE */}
       {showCountdown && (
@@ -146,12 +149,16 @@ export const App: React.FC = () => {
 
       {/* PHASE 3: MAIN UNLOCKED GIFT WEBSITE */}
       {isUnlocked && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.15 }}
-          className="relative z-10 flex flex-col min-h-screen"
-        >
+        <>
+          {/* Floating Vinyl Record Music Player Widget (Bottom Right) */}
+          <FloatingMusicPlayer />
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.15 }}
+            className="relative z-10 flex flex-col min-h-screen"
+          >
           {/* Top Sticky Navigation */}
           <Navbar
             activeSection={activeSection}
@@ -228,8 +235,10 @@ export const App: React.FC = () => {
           {/* Footer */}
           <Footer />
         </motion.div>
+        </>
       )}
     </div>
+    </MusicProvider>
   );
 };
 export default App;

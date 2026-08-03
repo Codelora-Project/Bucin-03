@@ -1,22 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { giftData, TopSongItem } from '../data/giftData';
+import { useMusic } from '../context/MusicContext';
 import { motion } from 'framer-motion';
 import { Play, Pause, Heart } from 'lucide-react';
 
 export const PlaylistSection: React.FC = () => {
-  const [playingId, setPlayingId] = useState<string | null>(null);
+  const { currentSong, isPlaying, playSong } = useMusic();
   const data = giftData.playlist;
-
-  const togglePlay = (song: TopSongItem) => {
-    if (playingId === song.id) {
-      setPlayingId(null);
-    } else {
-      setPlayingId(song.id);
-      if (song.spotifyUrl) {
-        window.open(song.spotifyUrl, '_blank', 'noopener,noreferrer');
-      }
-    }
-  };
 
   return (
     <section id="playlist" className="py-12 md:py-20 px-4 max-w-6xl mx-auto font-sans">
@@ -98,9 +88,9 @@ export const PlaylistSection: React.FC = () => {
 
                 {/* Play Button */}
                 <button
-                  onClick={() => window.open(`https://open.spotify.com/search/${encodeURIComponent(data.musicCard.song)}`, '_blank')}
+                  onClick={() => playSong(data.topSongs[0])}
                   className="w-8 h-8 rounded-full bg-amber-800 hover:bg-amber-900 text-white flex items-center justify-center shadow-sm transition-colors cursor-pointer"
-                  title="Play Song on Spotify"
+                  title="Play Song"
                 >
                   <Play className="w-3.5 h-3.5 fill-white ml-0.5" />
                 </button>
@@ -137,19 +127,20 @@ export const PlaylistSection: React.FC = () => {
                   {data.topSongsTitle}
                 </h3>
 
-                {/* Minimalist Line-Art Heart Outline (Same line-art style as Share icon) */}
                 <Heart className="w-4 h-4 text-amber-800/60 stroke-[1.75]" />
               </div>
 
               {/* Song List */}
               <div className="space-y-4">
                 {data.topSongs.map((song) => {
-                  const isCurrentlyPlaying = playingId === song.id;
+                  const isCurrentlyPlaying = currentSong.id === song.id && isPlaying;
                   return (
                     <div
                       key={song.id}
-                      onClick={() => togglePlay(song)}
-                      className="flex items-center justify-between gap-3 p-2 rounded-xl hover:bg-amber-50/60 transition-colors group cursor-pointer"
+                      onClick={() => playSong(song)}
+                      className={`flex items-center justify-between gap-3 p-2 rounded-xl transition-colors group cursor-pointer ${
+                        isCurrentlyPlaying ? 'bg-rose-100/70 border border-rose-200/80' : 'hover:bg-amber-50/60'
+                      }`}
                     >
                       {/* Album Cover & Details */}
                       <div className="flex items-center gap-3">
@@ -172,14 +163,14 @@ export const PlaylistSection: React.FC = () => {
                       <button
                         onClick={(e) => {
                           e.stopPropagation();
-                          togglePlay(song);
+                          playSong(song);
                         }}
                         className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors shadow-xs ${
                           isCurrentlyPlaying
-                            ? 'bg-amber-800 text-white'
+                            ? 'bg-rose-500 text-white'
                             : 'bg-amber-100 hover:bg-amber-200 text-amber-900'
                         }`}
-                        title="Play on Spotify"
+                        title={isCurrentlyPlaying ? 'Pause' : 'Play'}
                       >
                         {isCurrentlyPlaying ? (
                           <Pause className="w-3.5 h-3.5 fill-white" />
