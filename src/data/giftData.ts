@@ -275,11 +275,11 @@ export const giftData: GiftData = {
     musicCard: {
       title: "Music Gift Pass",
       name: "For My Love",
-      song: "Sampai Jadi Debu",
-      artist: "Banda Neira",
+      song: "Angel Baby",
+      artist: "Troye Sivan",
       album: "Sweet Memories Together",
       issuedDate: "Birthday Special",
-      photoUrl: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=400&auto=format&fit=crop",
+      photoUrl: "https://i.pinimg.com/1200x/b5/6d/d1/b56dd19b1852fa47c4bf63b5a016e652.jpg",
       code: "#HBD-2026-LOVE"
     },
 
@@ -287,43 +287,43 @@ export const giftData: GiftData = {
     topSongs: [
       {
         id: "song-1",
-        title: "Sampai Jadi Debu",
-        artist: "Banda Neira",
-        coverUrl: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=200&auto=format&fit=crop",
-        audioUrl: "/assets/sampai-jadi-debu.mp3",
-        spotifyUrl: "https://open.spotify.com/search/Sampai%20Jadi%20Debu%20Banda%20Neira"
+        title: "Angel Baby",
+        artist: "Troye Sivan",
+        coverUrl: "https://i.pinimg.com/736x/41/3d/cb/413dcb3ae552268c8dee2ecbec689942.jpg",
+        audioUrl: "/assets/angel baby.mp3",
+        spotifyUrl: "https://open.spotify.com/search/Angel%20Baby%20Troye%20Sivan"
       },
       {
         id: "song-2",
-        title: "Shape of My Heart",
-        artist: "Sting",
-        coverUrl: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=200&auto=format&fit=crop",
-        audioUrl: "/assets/shape-of-my-heart.mp3",
-        spotifyUrl: "https://open.spotify.com/search/Shape%20of%20My%20Heart%20Sting"
+        title: "Sampai Jadi Debu",
+        artist: "Banda Neira",
+        coverUrl: "https://i.pinimg.com/736x/d9/d6/a0/d9d6a0ef385a9f5dfe405ab7f07c7046.jpg",
+        audioUrl: "/assets/Sampai Jadi Debu.mp3",
+        spotifyUrl: "https://open.spotify.com/search/Sampai%20Jadi%20Debu%20Banda%20Neira"
       },
       {
         id: "song-3",
-        title: "Perfect",
-        artist: "Ed Sheeran",
-        coverUrl: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=200&auto=format&fit=crop",
-        audioUrl: "/assets/perfect.mp3",
-        spotifyUrl: "https://open.spotify.com/search/Perfect%20Ed%20Sheeran"
+        title: "Shape of My Heart",
+        artist: "Sting",
+        coverUrl: "https://i.pinimg.com/736x/a4/8d/67/a48d6725cf05613870e519fd38b57ffa.jpg",
+        audioUrl: "/assets/shape of my heart.mp3",
+        spotifyUrl: "https://open.spotify.com/search/Shape%20of%20My%20Heart%20Sting"
       },
       {
         id: "song-4",
-        title: "Until I Found You",
-        artist: "Stephen Sanchez",
-        coverUrl: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=200&auto=format&fit=crop",
-        audioUrl: "/assets/until-i-found-you.mp3",
-        spotifyUrl: "https://open.spotify.com/search/Until%20I%20Found%20You"
+        title: "Perfect",
+        artist: "Ed Sheeran",
+        coverUrl: "https://i.pinimg.com/1200x/8a/49/4a/8a494a9408096497d86bd350bd654244.jpg",
+        audioUrl: "/assets/Perfect.mp3",
+        spotifyUrl: "https://open.spotify.com/search/Perfect%20Ed%20Sheeran"
       },
       {
         id: "song-5",
-        title: "Monokrom",
-        artist: "Tulus",
-        coverUrl: "https://images.unsplash.com/photo-1494774157365-9e04c6720e47?q=80&w=200&auto=format&fit=crop",
-        audioUrl: "/assets/monokrom.mp3",
-        spotifyUrl: "https://open.spotify.com/search/Monokrom%20Tulus"
+        title: "Until I Found You",
+        artist: "Stephen Sanchez",
+        coverUrl: "https://i.pinimg.com/736x/36/3d/b6/363db608aab462048588f9316302aa1c.jpg",
+        audioUrl: "/assets/until i found you.mp3",
+        spotifyUrl: "https://open.spotify.com/search/Until%20I%20Found%20You"
       }
     ]
   }
