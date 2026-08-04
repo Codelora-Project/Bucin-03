@@ -100,21 +100,21 @@ export const giftData: GiftData = {
       {
         id: 1,
         question: "Where was our most memorable date or hangout spot when we first spent time together?",
-        hint: "Remember the cafe or hangout spot that made us chat until we forgot about time. [CHANGE_HINT_1]",
+        hint: "Answer hint: You can type 'cafe', 'coffee', 'park', or 'coffee shop'.",
         type: "text",
-        correctAnswers: ["cafe", "coffee", "park", "coffee shop", "[change_answer_1]"]
+        correctAnswers: ["cafe", "coffee", "park", "coffee shop", "kafe", "taman", "[change_answer_1]"]
       },
       {
         id: 2,
         question: "What food or snack did we eat together most often?",
-        hint: "Our favorite late night snack we often bought. [CHANGE_HINT_2]",
+        hint: "Answer hint: You can type 'seblak', 'noodles', 'meatball', 'martabak', or 'ramen'.",
         type: "text",
-        correctAnswers: ["seblak", "noodles", "meatball", "martabak", "ramen", "[change_answer_2]"]
+        correctAnswers: ["seblak", "noodles", "meatball", "martabak", "ramen", "bakso", "mie", "noodle", "[change_answer_2]"]
       },
       {
         id: 3,
         question: "What is your happiness level during our relationship together?",
-        hint: "Choose the most meaningful answer from your heart.",
+        hint: "All options are correct! Select any option to proceed.",
         type: "choice",
         options: [
           "100/10 (Very Happy)",
@@ -271,7 +271,7 @@ export const giftData: GiftData = {
   playlist: {
     quote: "Life is like a song recording, and every best melody always reminds me of you.",
     buddiesLabel: "Our favorite memory songs",
-    
+
     musicCard: {
       title: "Music Gift Pass",
       name: "For My Love",
